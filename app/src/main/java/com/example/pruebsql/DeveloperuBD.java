@@ -8,11 +8,9 @@ import androidx.annotation.Nullable;
 
 public class DeveloperuBD extends SQLiteOpenHelper {
 
-    int numeracion = 00000;
-
     public static final String bd_name="developeru.bd";
     public static final int bd_version=1;
-    public static final String tabla_cursos="CREATE TABLE CURSOS(CODIGO TEXT PRIMARY KEY, USER TEXT, PASS TEXT)";
+    public static final String tabla_cursos="CREATE TABLE CURSOS(CODIGO INTEGER AUTOINCREMENT PRIMARY KEY, USER TEXT, PASS TEXT)";
 
     public DeveloperuBD(Context context ) {
         super(context, bd_name, null, bd_version);
@@ -28,11 +26,10 @@ public class DeveloperuBD extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+tabla_cursos);
         sqLiteDatabase.execSQL(tabla_cursos);
     }
-    public void agregarCursos(String codigo, String user, String pass ){
+    public void agregarCursos(String user, String pass ){
         SQLiteDatabase bd = getWritableDatabase();
         if(bd!=null){
-            bd.execSQL("INSERT INTO CURSOS VALUES('"+(codigo+numeracion)+"','"+user+"','"+pass+"')");
-            numeracion++;
+            bd.execSQL("INSERT INTO CURSOS (user,pass) VALUES('"+user+"','"+pass+"')");
             bd.close();
         }
     }

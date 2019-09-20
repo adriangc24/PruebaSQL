@@ -12,7 +12,6 @@ public class MainActivity extends AppCompatActivity {
 
     EditText etUser,etPass;
     Button b1;
-    String codigo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,14 +20,13 @@ public class MainActivity extends AppCompatActivity {
 
         etUser = (EditText)findViewById(R.id.editText);
         etPass = (EditText)findViewById(R.id.editText2);
-        codigo = "COD";
         b1 = (Button)findViewById(R.id.button);
         final DeveloperuBD developeruBD = new DeveloperuBD(getApplicationContext());
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View view){
-                developeruBD.agregarCursos(codigo,etUser.getText().toString(),etPass.getText().toString());
+                developeruBD.agregarCursos(etUser.getText().toString(),etPass.getText().toString());
                 Toast.makeText(getApplicationContext(),"Bien insertado !",Toast.LENGTH_LONG).show();
             }
         });
