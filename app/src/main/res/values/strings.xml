@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">PruebaSQL</string>
+    <string name="button">Guardar</string>
+    <string name="et_user">Introduce nombre usuario</string>
+    <string name="et_pass">Introduce el password</string>
+
+
+
+</resources>
